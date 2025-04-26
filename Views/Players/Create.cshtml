@@ -1,0 +1,25 @@
+@model appfutbol.Models.Player
+
+<h2>Registrar nuevo jugador</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Age"></label>
+        <input asp-for="Age" class="form-control" type="number" />
+    </div>
+    <div>
+        <label asp-for="Position"></label>
+        <input asp-for="Position" class="form-control" />
+    </div>
+    <div>
+        <label>Equipo</label>
+        <select asp-for="TeamId" asp-items="ViewBag.Teams" class="form-control">
+            <option value="">Seleccione</option>
+        </select>
+    </div>
+    <button type="submit">Guardar</button>
+</form>
