@@ -1,0 +1,25 @@
+@model IEnumerable<appfutbol.Models.Player>
+
+<h2>Lista de jugadores</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Posición</th>
+            <th>Equipo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var jugador in Model)
+        {
+            <tr>
+                <td>@jugador.Name</td>
+                <td>@jugador.Age</td>
+                <td>@jugador.Position</td>
+                <td>@jugador.Team?.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
