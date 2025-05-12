@@ -1,0 +1,32 @@
+@model IEnumerable<appfutbol.Models.Team>
+
+<h2>Lista de Equipos y sus Jugadores</h2>
+
+<a asp-action="Create" class="btn btn-primary">Crear nuevo equipo</a>
+
+@foreach (var team in Model)
+{
+    <div class="card mt-4">
+        <div class="card-header bg-dark text-white">
+            <h4>@team.Name</h4>
+        </div>
+        <div class="card-body">
+            @if (team.Players != null && team.Players.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var player in team.Players)
+                    {
+                        <li class="list-group-item">
+                            @player.Name - @player.Position - @player.Age años
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted">Este equipo aún no tiene jugadores.</p>
+            }
+        </div>
+    </div>
+}
+
